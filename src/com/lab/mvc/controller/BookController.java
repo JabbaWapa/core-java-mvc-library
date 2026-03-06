@@ -19,7 +19,7 @@ public class BookController {
 
   while (run) {
 
-   view.showMenuSearch();
+   view.showMenuDelete();
 
    int choice = view.readChoice();
 

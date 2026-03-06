@@ -19,7 +19,20 @@ public class BookRepository {
  public List<Book> findAll() {
   return new ArrayList<>(books);
  }
+public java.util.List<Book> searchByTitle(String keyword) {
 
+ String k = keyword.toLowerCase();
+ java.util.List<Book> result = new java.util.ArrayList<>();
+
+ for (Book b : books) {
+  if (b.getTitle().toLowerCase().contains(k)) {
+   result.add(b);
+  }
+ }
+
+ return result;
+}
+ 
  public Book addBook(String title, String author) {
  Book b = new Book(nextId++, title, author);
  books.add(b);

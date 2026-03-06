@@ -64,7 +64,20 @@ public String readTitle() {
 }
 
 public String readAuthor() {
- System.out.print("Enter author name: ");
+ System.out.print("Enter author name: ");   
+ return sc.nextLine().trim();
+}
+
+ public void showMenuSearch() {
+ System.out.println("\n=== Library Manager (Search Book) ===");
+ System.out.println("1. View all books");
+ System.out.println("2. Search book by title");
+ System.out.println("3. Exit");
+ System.out.print("Choose: ");
+}
+
+public String readSearchKeyword() {
+ System.out.print("Enter title keyword: ");
  return sc.nextLine().trim();
 }
  

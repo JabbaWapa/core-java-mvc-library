@@ -19,22 +19,29 @@ public class BookController {
 
   while (run) {
 
-   view.showMenuMain();
+   view.showMenuAdd();
 
    int choice = view.readChoice();
 
    switch (choice) {
 
-    case 1 -> view.showBooks(repo.findAll());
+ case 1 -> view.showBooks(repo.findAll());
 
-    case 2 -> {
-     view.message("Bye!");
-     run = false;
-    }
+ case 2 -> {
+  String title = view.readTitle();
+  String author = view.readAuthor();
+  repo.addBook(title, author);
+  view.message("Book added.");
+ }
 
-    default -> view.message("Choose 1 or 2 only.");
+ case 3 -> {
+  view.message("Bye!");
+  run = false;
+ }
 
-   }
+ default -> view.message("Choose 1-3 only.");
+
+}
 
   }
 

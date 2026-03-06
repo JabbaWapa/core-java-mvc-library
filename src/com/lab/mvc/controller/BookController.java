@@ -19,7 +19,7 @@ public class BookController {
 
   while (run) {
 
-   view.showMenuSearch();
+   view.showMenuDelete();
 
    int choice = view.readChoice();
 
@@ -28,8 +28,9 @@ public class BookController {
  case 1 -> view.showBooks(repo.findAll());
 
  case 2 -> {
-  String key = view.readSearchKeyword();
-  view.showBooks(repo.searchByTitle(key));
+  int id = view.readId();
+  boolean ok = repo.deleteById(id);
+  view.message(ok ? "Deleted successfully." : "ID not found.");
  }
 
  case 3 -> {

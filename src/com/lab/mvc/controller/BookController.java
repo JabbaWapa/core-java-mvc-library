@@ -19,7 +19,7 @@ public class BookController {
 
   while (run) {
 
-   view.showMenuAdd();
+   view.showMenuSearch();
 
    int choice = view.readChoice();
 
@@ -28,10 +28,8 @@ public class BookController {
  case 1 -> view.showBooks(repo.findAll());
 
  case 2 -> {
-  String title = view.readTitle();
-  String author = view.readAuthor();
-  repo.addBook(title, author);
-  view.message("Book added.");
+  String key = view.readSearchKeyword();
+  view.showBooks(repo.searchByTitle(key));
  }
 
  case 3 -> {
